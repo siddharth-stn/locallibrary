@@ -14,7 +14,7 @@ var app = express();
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", "false");
 const mongoDbURL =
-  "mongodb+srv://siddharth:hanumanji@express-mongo.dlhwrs5.mongodb.net/locallibrary?retryWrites=true&w=majority";
+  "mongodb+srv://siddharth:hanumanji@express-mongo.dlhwrs5.mongodb.net/test?retryWrites=true&w=majority";
 
 main()
   .then(() => console.log("Connected to database."))

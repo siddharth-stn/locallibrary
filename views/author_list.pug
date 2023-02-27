@@ -6,7 +6,7 @@ block content
   ul 
     each author in author_list 
       li 
-        a(href="author.url") #{author.name} 
+        a(href=author.url) #{author.name} 
         if (!author.date_of_birth_formatted)
           | Author lifespan unknown
         else if (!author.date_of_death_formatted)

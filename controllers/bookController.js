@@ -54,7 +54,6 @@ exports.book_detail = (req, res, next) => {
   async.parallel(
     {
       book(callback) {
-        console.log(req.params.id);
         Book.findById(req.params.id)
           .populate("author")
           .populate("genre")
@@ -66,7 +65,6 @@ exports.book_detail = (req, res, next) => {
     },
     (err, results) => {
       if (err) {
-        console.log("I was");
         return next(err);
       }
       if (!results.book) {

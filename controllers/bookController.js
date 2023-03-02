@@ -109,7 +109,10 @@ exports.book_create_get = (req, res, next) => {
 exports.book_create_post = [
   // convert the genre into an array
   (req, res, next) => {
+    // check that the genre got from the body of the form
+    // in req object is an Array or not
     if (!Array.isArray(req.body.genre)) {
+      // genre in body is not an Array convert it to an array
       req.body.genre =
         typeof req.body.genre === "undefined" ? [] : [req.body.genre];
     }
@@ -148,7 +151,7 @@ exports.book_create_post = [
     if (!errors.isEmpty()) {
       // There are errors. Render the form again with sanitized values/error messages.
 
-      //Get all authors and genres for form
+      // Get all authors and genres for form
       async.parallel(
         {
           authors(callback) {

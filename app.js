@@ -16,9 +16,10 @@ var app = express();
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", "false");
-const mongoDbURL =
+const dev_db_url =
   "mongodb+srv://siddharth:hanumanji@express-mongo.dlhwrs5.mongodb.net/test?retryWrites=true&w=majority";
 
+const mongoDbURL = process.env.MONGODB_URI;
 main()
   .then(() => console.log("Connected to database."))
   .catch((err) => console.log(err));

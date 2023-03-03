@@ -16,8 +16,6 @@ var app = express();
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", "false");
-const dev_db_url =
-  "mongodb+srv://siddharth:hanumanji@express-mongo.dlhwrs5.mongodb.net/test?retryWrites=true&w=majority";
 
 const mongoDbURL = process.env.MONGODB_URI;
 main()

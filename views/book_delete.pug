@@ -1,0 +1,26 @@
+extends layout 
+
+block content 
+  h1 #{title} : #{book.title}
+  if (bookinstance.length)
+    p There are copies of this book in the record which should be deleted before deleting the book.
+    hr
+    dl 
+      each copy in bookinstance
+        dt Imprint: #{copy.imprint}
+        if copy.status == 'Loaned'
+          dt.text-warning Status: #{copy.status}
+        else 
+          dt Status: #{copy.status}
+        if copy.status == 'Loaned'
+          dt Due Back on: #{copy.due_back_formatted}
+        hr
+  else 
+    hr
+    p * Do you really want to #[strong delete] this book from the records? 
+    p * If yes then press the delete button below.
+    form(action="" method="POST") 
+      div.form-group
+        input#bookid.form-control(type='hidden',name='bookid', required='true', value=book._id )    
+      
+      button.btn.btn-danger(type='submit') Delete

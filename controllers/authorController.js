@@ -136,7 +136,6 @@ exports.author_delete_get = (req, res, next) => {
 };
 
 // Handle Author delete on POST.
-
 exports.author_delete_post = (req, res, next) => {
   async.parallel(
     {
